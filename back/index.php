@@ -1,5 +1,6 @@
 <?php
 
-include_once ('./inc/functions.php');
+include_once __DIR__ . '/inc/functions.php';
 
-echo "Project inialized!</br>";
+header("Content-Type: text/plain");
+echo "Project initialized!\n";
