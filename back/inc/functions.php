@@ -1,11 +1,11 @@
 <?php
 define('SITE_NAME', 'Saba Backend Test Project');
 
-//Token lifetme // default = 2 hours (120 Minutes), this lifetime will be added to the user`s token lifetime with every successful api request
-define('TOKEN_LIFE', '120');
+//Token lifetime // default = 2 hours (120 Minutes), this lifetime will be added to the user`s token lifetime with every successful api request
+define('TOKEN_LIFE', 120);
 
 //App Root
-define('APP_ROOT', dirname(dirname(__FILE__)));
+define('APP_ROOT', dirname(__DIR__));
 define('URL_ROOT', '/');
 
 //DB Params
@@ -110,7 +110,7 @@ function get_all_records(string $table_name, $query = []) {
 
         $result  = [];
         if ($records->num_rows ?? null > 0 === true) {
-            while($row = $result->fetch_assoc()) {
+            while($row = $records->fetch_assoc()) {
                 $result[] = $row;
             }
         }
