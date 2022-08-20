@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $user = get_record_by_field('users', 'username', $username);
-        if ($user and ($user['password'] ?? '') === sha1($password)) {
+        if ($user and password_verify($password, $user['password'])) {
             $response['message'] = 'Login successful';
             $response['status'] = true;
             $token = createToken(60);

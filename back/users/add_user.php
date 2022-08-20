@@ -11,26 +11,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['username']) or !isset($_POST['password'])) {
         $response['message'] = 'Username or Password is not provided properly.';
     } else {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $check = get_record_by_field('users', 'username', $username);
-        if (isset($check['username'])) {
-            $response['message'] = 'Username is already exists.';
-        } else {
-            $result = insert_single_record('users', [
-                'username' => $username,
-                'password' => $password
-            ]);
-            if (isset($result['id'])) {
-                $response['status'] = true;
-                $response['message'] = 'User created successfully.';
-                $response['result'] = [
-                    'username' => $username,
-                    'user_id' => $result['id']
-                ];
+        if (checkUserToken()) {
+            $username = $_POST['username'];
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => DB_COST]);
+            $check = get_record_by_field('users', 'username', $username);
+            if (isset($check['username'])) {
+                $response['message'] = 'Username is already exists.';
             } else {
-                $response['message'] = 'Error while creating user.';
+                $result = insert_single_record('users', [
+                    'username' => $username,
+                    'password' => $password
+                ]);
+                if (isset($result['id'])) {
+                    $response['status'] = true;
+                    $response['message'] = 'User created successfully.';
+                    $response['result'] = [
+                        'username' => $username,
+                        'user_id' => $result['id']
+                    ];
+                } else {
+                    $response['message'] = 'Error while creating user.';
+                }
             }
+        } else {
+            $response['message'] = 'Not authorized.';
         }
     }
 }
