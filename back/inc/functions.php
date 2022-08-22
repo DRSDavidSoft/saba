@@ -3,10 +3,10 @@ define('SITE_NAME', 'Saba Backend Test Project');
 define('DEBUG_MODE', 'debug'); // "debug" or "production"
 
 //Token lifetme // default = 2 hours (120 Minutes), this lifetime will be added to the user`s token lifetime with every successful api request
-define('TOKEN_LIFE', '120');
+define('TOKEN_LIFE', 120);
 
 //App Root
-define('APP_ROOT', dirname(dirname(__FILE__)));
+define('APP_ROOT', dirname(dirname(__FILE__)));  // It's going to get a folder before current directory
 define('URL_ROOT', '/');
 
 //DB Params

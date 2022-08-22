@@ -1,6 +1,7 @@
 <?php
 
 include_once ('./inc/functions.php');
+dd(APP_ROOT);
 $db = db_connection();
 if ($db) {
     $tables = [
