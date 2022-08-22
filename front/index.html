@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>Saba test project</title>
+</head>
+<body class="container-fluid">
+    <section class="container mt-5">
+        <div class="row d-none" id="loginForm">
+            <div class="col col-10 col-md-6 col-lg-4 offset-1 offset-md-3 offset-lg-4">
+                <div class="card">
+                    <h5 class="card-header">User Login</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 mb-3" id="loginFormErrors">
+
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="username" class="form-label">Username:</label>
+                                <input type="text" class="form-control" id="username" placeholder="USERNAME" autocomplete="false">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" class="form-control" id="password" placeholder="" autocomplete="false">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="button" id="login">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none" id="usersForm">
+            <div class="col-12 mb-3" id="usersFormErrors"></div>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Add user
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col col-10 col-md-6 col-lg-4">
+                                    <div class="col-12 mb-3">
+                                        <label for="newUser" class="form-label">Username:</label>
+                                        <input type="text" class="form-control" id="newUser" placeholder="USERNAME" autocomplete="false">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="newPass" class="form-label">Password:</label>
+                                        <input type="password" class="form-control" id="newPass" placeholder="" autocomplete="false">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="newPassConfirm" class="form-label">Confirm Password:</label>
+                                        <input type="password" class="form-control" id="newPassConfirm" placeholder="" autocomplete="false">
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="button" id="addUser">Add user</button>
+                                        <button class="btn btn-secondary ml-5" type="button" id="cancelAddUser">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="userList"></div>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+<script src="./scripts.js"></script>
+</html>
